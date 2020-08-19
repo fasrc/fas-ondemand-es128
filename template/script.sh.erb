@@ -7,6 +7,7 @@ set -x
 
 # Reset module environment (may require login shell for some HPC clusters)
 module purge && module restore
+module load ifort
 
 export SINGULARITYENV_XDG_CONFIG_HOME=$XDG_CONFIG_HOME
 
@@ -16,7 +17,7 @@ export container_folder=${CONTAINER_REPO}/${COURSE}
 export container_image=$container_folder/<%= context.container_version %>
 
 ## we need to use contain to protect abaqus and use this to expose other software
-export SING_BIND=" --contain -B /tmp -B /dev -B /scratch -B `dirname $HOME` -B /n/helmod/apps -B /n/helmod/modulefiles "
+export SING_BIND=" --contain -B /tmp -B /dev -B /scratch -B `dirname $HOME` -B /n/helmod/apps -B /n/helmod/modulefiles -B /n/sw/eb -B /n/sw/intel-cluster-studio-2017 "
 
 ## other standard binds
 export SING_BINDS=" $SING_BIND -B /etc/nsswitch.conf -B /etc/sssd/ -B /var/lib/sss -B /etc/slurm -B /slurm -B /var/run/munge  -B `which sbatch ` -B `which srun ` -B `which sacct ` -B `which scontrol `   -B /usr/lib64/slurm/  -B /usr/lib64/libmunge.so.2 -B /usr/lib64/libmunge.so.2.0.0 "

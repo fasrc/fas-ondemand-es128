@@ -410,11 +410,12 @@ chmod +x $DESKTOP_FOLDER/VSCode.desktop
 
 
 ## create an icon for the terminal 
+export terminal_script=<%= session.staged_root.join("scripts", "my_terminal.sh") %>
 cat > $DESKTOP_FOLDER/terminal.desktop <<EOF
 [Desktop Entry]
 Version=1.0
 Type=Application
-Exec=exo-open --launch TerminalEmulator
+Exec=$terminal_script
 Icon=utilities-terminal
 StartupNotify=true
 Terminal=false
@@ -425,3 +426,21 @@ Comment=Use the command line
 EOF
 
 chmod +x $DESKTOP_FOLDER/terminal.desktop
+
+
+## create an icon for firefox
+export firefox_icon=<%= session.staged_root.join("assets", "firefox.png") %>
+export firefox_script=<%= session.staged_root.join("scripts", "my_firefox.sh") %>
+
+cat > $DESKTOP_FOLDER/Firefox.desktop <<EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=$firefox_script
+Icon=$firefox_icon
+Terminal=false
+Name=Firefox
+Comment=Startup Firefox
+EOF
+
+chmod +x $DESKTOP_FOLDER/Firefox.desktop

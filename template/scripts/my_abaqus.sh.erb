@@ -2,7 +2,22 @@
 
 zenity --info --text  '<span foreground="red" font="18"><b><i>Abaqus</i></b> is starting up.\nPlease allow a minute to load.\nThank you for your patience</span>' --width=500 --height=200 &
 
+# ifort stuff ( module load ifort )
+export MODULEPATH=/n/sw/eb/modulefiles/centos7/Compiler/intel/2017.4.196:$MODULEPATH
+export CPATH=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/include:$CPATH
+export LD_LIBRARY_PATH=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/compilers_and_libraries_2017.4.196/linux/compiler/lib/intel64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/debugger_2017/libipt/intel64/lib:$LD_LIBRARY_PATH
+export LIBRARY_PATH=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/compilers_and_libraries_2017.4.196/linux/compiler/lib/intel64:$LIBRARY_PATH
+export MANPATH=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/compilers_and_libraries_2017.4.196/linux/man/common:$MANPATH
+export PATH=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/compilers_and_libraries_2017.4.196/linux/bin/intel64:$PATH
+export EBROOTIFORT=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196
+export EBVERSIONIFORT=2017.4.196
+export EBDEVELIFORT=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/easybuild/Core-ifort-2017.4.196-easybuild-devel
+export INTEL_LICENSE_FILE=/n/sw/intel-cluster-studio-2017/license.lic:$INTEL_LICENSE_FILE
+export INTEL_PYTHONHOME=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/debugger_2017/python/intel64
 
+
+# abaqus stuff
 export ABAQUS_HOME=/n/sw/abaqus-2019
 export PATH=/n/sw/abaqus-2019/SIMULIA/CAE/2019/linux_a64/code/bin:$PATH
 export PATH=/n/sw/abaqus-2019/SIMULIA/CAE/2019/linux_a64/code/command:$PATH

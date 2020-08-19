@@ -1,7 +1,5 @@
 #!/bin/env bash
 
-zenity --info --text  '<span foreground="red" font="18"><b><i>Matlab</i></b> is starting up.\nPlease allow a minute to load.\nThank you for your patience</span>' --width=500 --height=200 &
-
 # ifort stuff ( module load ifort )
 export MODULEPATH=/n/sw/eb/modulefiles/centos7/Compiler/intel/2017.4.196:$MODULEPATH
 export CPATH=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/include:$CPATH
@@ -16,20 +14,4 @@ export EBDEVELIFORT=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/easybuild/Core-i
 export INTEL_LICENSE_FILE=/n/sw/intel-cluster-studio-2017/license.lic:$INTEL_LICENSE_FILE
 export INTEL_PYTHONHOME=/n/sw/eb/apps/centos7/Core/ifort/2017.4.196/debugger_2017/python/intel64
 
-
-# abaqus stuff
-export MTLB_WORKDIR=/scratch/$USER/$SLURM_JOBID
-mkdir -p $MTLB_WORKDIR
-
-export MATLAB_PREFDIR=/dev/shm/$USER/$SLURM_JOBID ;
-mkdir -p $MATLAB_PREFDIR
-
-# Set working directory to home directory
-cd $HOME
-
-cat > java.opts <<EOF
--Dsun.java2d.xrender=false
-EOF
-
-matlab  -desktop -softwareopengl &
-
+xfce4-terminal
