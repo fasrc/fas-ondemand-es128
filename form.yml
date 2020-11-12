@@ -20,7 +20,7 @@ attributes:
     label: email for status notification
     widget: text_field
   custom_memory_per_node:
-    label: Memory Allocation in GB
+    label: Memory Allocation in GB (max 250G)
     value: 16
     min:   16
     step:  1
@@ -35,7 +35,7 @@ attributes:
     widget: number_field
     help: "Number of mpi tasks. If you don't know what this means leave it at 1"
   custom_num_cores:
-    label: Number of cores
+    label: Number of cores (max 64)
     value: 4
     min:   4
     step:  1
