@@ -24,7 +24,7 @@ attributes:
     value: 16
     min:   16
     step:  1
-    max:   256
+    max:   250
     widget: number_field
   custom_num_tasks:
     label: Number of mpi tasks
