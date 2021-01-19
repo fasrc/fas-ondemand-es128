@@ -31,6 +31,10 @@ export PATH=/n/sw/abaqus-2019/SIMULIA/Isight/2019/linux_a64/code/command:$PATH
 export PATH=/n/sw/abaqus-2019/SIMULIA/fe-safe/2019/linux_a64/code/bin:$PATH
 export PATH=/n/sw/abaqus-2019/SIMULIA/fe-safe/2019/linux_a64/code/command:$PATH
 
+export MATLAB_HOME=/opt/MATLAB-R2020a
+export PATH=${MATLAB_HOME}/bin:${PATH}
+export MLM_LICENSE_FILE=27000@rclic1
+
 unset SLURM_GTIDS
 abaqus cae -mesa
 

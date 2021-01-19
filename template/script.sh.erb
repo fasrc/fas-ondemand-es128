@@ -6,15 +6,10 @@ cd "${HOME}"
 set -x
 
 # Reset module environment (may require login shell for some HPC clusters)
-module purge && module restore
+module purge 
 module load ifort
 
 export SINGULARITYENV_XDG_CONFIG_HOME=$XDG_CONFIG_HOME
-
-export container_folder=${CONTAINER_REPO}/${COURSE}
-## when you test new installs you probaby want to drop the images locally in your home folder
-#export container_folder=$HOME/Programs/containers/fasrc_sandbox_rstudio/
-export container_image=$container_folder/<%= context.container_version %>
 
 ## we need to use contain to protect abaqus and use this to expose other software
 export SING_BIND=" --contain -B /tmp -B /dev -B /scratch -B `dirname $HOME` -B /n/helmod/apps -B /n/helmod/modulefiles -B /n/sw/eb -B /n/sw/intel-cluster-studio-2017 -B /n/holyscratch01 "
@@ -31,5 +26,5 @@ export SING_GPU="--nv"
 echo "Launching desktop '<%= context.desktop %>'..."
 chmod +x "<%= session.staged_root.join("desktops", "#{context.desktop}.sh") %>"
 export SINGULARITYENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-singularity exec $SING_GPU $SING_BINDS $container_image "<%= session.staged_root.join("desktops", "#{context.desktop}.sh") %>"
+singularity exec $SING_GPU $SING_BINDS $SING_OVERLAYS $container_image "<%= session.staged_root.join("desktops", "#{context.desktop}.sh") %>"
 echo "Desktop '<%= context.desktop %>' ended..."

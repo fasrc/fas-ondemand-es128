@@ -55,7 +55,7 @@ attributes:
     label: "container version"
     help: "Abaqus 2019 on centos7 is currently the only supported platform"
     options:
-      - [ "abaqus 2019",  "es128_abaqus2019_v1.sif" ]
+      - [ "abaqus 2019",  "remote_desktop_011821.sif" ]
 
 form:
   - bc_vnc_idle

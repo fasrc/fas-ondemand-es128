@@ -1,9 +1,18 @@
 # Export the module function if it exists
 [[ $(type -t module) == "function" ]] && export -f module
 
-#export CONTAINER_REPO=/n/helmod/apps/centos7/Singularity/OOD_Apps_academic_cluster/Fall_2020
-export CONTAINER_REPO=/n/holystore01/SINGULARITY/Academic-cluster/Fall_2020
+##>$ pwd
+## /n/holystore01/SINGULARITY/Academic-cluster/Spring_2021/seas
+##>$ ls es128/
+## abaqus-2019.sqs  
+## matlab-R2020a-standard.sqs  
+## remote_desktop_011821.sif
+
+export CONTAINER_REPO=/n/singularity_images/Academic-cluster/Spring_2021/seas
 export COURSE=es128
+export container_folder=${CONTAINER_REPO}/${COURSE}
+export container_image=$container_folder/remote_desktop_011821.sif
+export SING_OVERLAYS=" --overlay ${container_folder}/matlab-R2020a-standard.sqs --overlay ${container_folder}/abaqus-2019.sqs "
 
 #
 #
@@ -12,23 +21,6 @@ export COURSE=es128
 export DESKTOP_FOLDER="${PWD}/desktop"
 export XDG_DESKTOP_DIR=$DESKTOP_FOLDER
 mkdir -p $DESKTOP_FOLDER
-
-#### create an icon for the terminal 
-##cat > $DESKTOP_FOLDER/terminal.desktop <<EOF
-##[Desktop Entry]
-##Version=1.0
-##Type=Application
-##Exec=exo-open --launch TerminalEmulator
-##Icon=utilities-terminal
-##StartupNotify=true
-##Terminal=false
-##Categories=Utility;X-XFCE;X-Xfce-Toplevel;
-##OnlyShowIn=XFCE;
-##Name=Terminal
-##Comment=Use the command line
-##EOF
-##
-##chmod +x $DESKTOP_FOLDER/terminal.desktop
 
 ## create the configuration folder
 export XDG_CONFIG_HOME=$PWD/config
