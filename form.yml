@@ -72,7 +72,5 @@ form:
   - custom_time
   - container_version
   - custom_desktop
-  - custom_email_address
-  - bc_email_on_started
   - custom_reservation
   - bc_account
